@@ -1,6 +1,6 @@
 {
   "name": "zx-infinite-scroll",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Vue 3 infinite scroll component with pull-to-refresh support",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
