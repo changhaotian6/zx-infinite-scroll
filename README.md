@@ -20,14 +20,9 @@ npm install zx-infinite-scroll
 
 ## 快速开始
 
-### ✨ 样式自动注入
-
-**无需手动引入样式！** 只要导入组件，样式会自动注入到页面中。
-
 ```vue
 <script setup>
 import { InfiniteScrollV2 } from 'zx-infinite-scroll';
-// ✅ 样式已自动注入，无需手动 import 'xxx/style.css'
 
 const fetchData = async ({ page, pageSize }) => {
   // 你的请求逻辑
