@@ -50,8 +50,6 @@ const fetchData = async ({ page, pageSize }) => {
 
 ## 使用
 
-> 💡 **提示**：样式已自动注入，无需手动引入 CSS 文件！
-
 ### 方式一：按需引入
 
 ```vue
