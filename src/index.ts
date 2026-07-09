@@ -3,6 +3,10 @@ import InfiniteScroll from './components/infinite-scroll.vue';
 import InfiniteScrollV2 from './components/infinite-scroll-v2.vue';
 import RequestLoading from './components/request-loading.vue';
 import EmptyComponent from './components/empty-component.vue';
+import { injectStyle } from './inject-style';
+
+// 自动注入样式（只要导入了这个包就会执行）
+injectStyle();
 
 // 单独导出组件
 export { InfiniteScroll, InfiniteScrollV2, RequestLoading, EmptyComponent };
