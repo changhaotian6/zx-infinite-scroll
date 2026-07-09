@@ -18,6 +18,91 @@ Vue 3 无限滚动组件，支持下拉刷新、上拉加载。
 npm install zx-infinite-scroll
 ```
 
+## 快速开始
+
+### ⭐ 推荐：全局引入样式（最简单）
+
+在 `main.ts` 中全局引入样式**一次**即可：
+
+```ts
+import { createApp } from 'vue';
+import App from './App.vue';
+import 'zx-infinite-scroll/dist/style.css'; // 👈 只需引入一次
+
+const app = createApp(App);
+app.mount('#app');
+```
+
+之后在任何组件中使用都**不需要**再引入样式：
+
+```vue
+<script setup>
+import { InfiniteScrollV2 } from 'zx-infinite-scroll';
+// ✅ 不需要再引入样式
+</script>
+
+<template>
+  <InfiniteScrollV2 :fetch-fn="fetchData">
+    <!-- ... -->
+  </InfiniteScrollV2>
+</template>
+```
+
+---
+
+### 方式一：手动引入样式（每次使用都要引入）
+
+如果不想全局引入，每次使用时手动引入：
+
+```vue
+<script setup>
+import { InfiniteScrollV2 } from 'zx-infinite-scroll';
+import 'zx-infinite-scroll/dist/style.css'; // 👈 每次都要引入
+</script>
+```
+
+---
+
+### 方式二：使用 unplugin-vue-components 自动导入（高级）
+
+安装插件：
+
+```bash
+npm install -D unplugin-vue-components
+```
+
+配置 `vite.config.ts`：
+
+```ts
+import { defineConfig } from 'vite';
+import vue from '@vitejs/plugin-vue';
+import Components from 'unplugin-vue-components/vite';
+
+export default defineConfig({
+  plugins: [
+    vue(),
+    Components({
+      resolvers: [
+        // 自定义解析器
+        (componentName) => {
+          if (componentName.startsWith('InfiniteScroll')) {
+            return {
+              name: componentName,
+              from: 'zx-infinite-scroll',
+              sideEffects: 'zx-infinite-scroll/dist/style.css'
+            };
+          }
+        }
+      ]
+    })
+  ]
+});
+```
+
+这样组件和样式都会自动按需导入，无需手动 import！
+
+
+
 ## 使用
 
 ### 方式一：按需引入
