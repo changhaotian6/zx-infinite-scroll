@@ -24,7 +24,7 @@ withDefaults(defineProps<{ text?: string; fullscreen?: boolean }>(), {
   gap: 8px;
   padding: 6px 12px;
   border-radius: 16px;
-  color: var(--zx-primary-color, #1e5efd);
+  color: #1989fa;
   font-size: 14px;
 }
 
@@ -32,7 +32,7 @@ withDefaults(defineProps<{ text?: string; fullscreen?: boolean }>(), {
   width: 18px;
   height: 18px;
   border-radius: 50%;
-  border: 2.5px solid var(--zx-primary-color, #1e5efd);
+  border: 2.5px solid #1989fa;
   border-top-color: transparent;
   animation: spin 0.8s linear infinite;
 }

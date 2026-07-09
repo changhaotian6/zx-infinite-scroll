@@ -540,7 +540,7 @@ defineExpose({
 }
 
 .pull-text {
-  color: var(--zx-primary-color, #1989fa);
+  color: #1989fa;
   font-size: 14px;
 }
 
