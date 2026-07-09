@@ -8,16 +8,16 @@ withDefaults(defineProps<{ text?: string; fullscreen?: boolean }>(), {
 </script>
 
 <template>
-  <div class="loading-container" :class="{ fullscreen: fullscreen }">
-    <div class="loading-content">
-      <span class="loading-spinner"></span>
-      <span class="loading-text">{{ text }}</span>
+  <div class="zx-loading-container" :class="{ fullscreen: fullscreen }">
+    <div class="zx-loading-content">
+      <span class="zx-loading-spinner"></span>
+      <span class="zx-loading-text">{{ text }}</span>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-.loading-content {
+<style lang="scss">
+.zx-loading-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -28,22 +28,22 @@ withDefaults(defineProps<{ text?: string; fullscreen?: boolean }>(), {
   font-size: 14px;
 }
 
-.loading-spinner {
+.zx-loading-spinner {
   width: 18px;
   height: 18px;
   border-radius: 50%;
   border: 2.5px solid #1989fa;
   border-top-color: transparent;
-  animation: spin 0.8s linear infinite;
+  animation: zx-spin 0.8s linear infinite;
 }
 
-@keyframes spin {
+@keyframes zx-spin {
   to {
     transform: rotate(360deg);
   }
 }
 
-.loading-container.fullscreen {
+.zx-loading-container.fullscreen {
   position: fixed;
   top: 0;
   left: 0;

@@ -457,31 +457,31 @@ defineExpose({
 </script>
 
 <template>
-  <div ref="containerRef" class="infinite-scroll">
+  <div ref="containerRef" class="zx-infinite-scroll">
     <!-- 下拉刷新指示器 -->
     <div
       v-if="pullRefresh"
-      class="pull-refresh-indicator"
+      class="zx-pull-refresh-indicator"
       :class="{ 'no-transition': isDragging }"
       :style="{ transform: `translateY(${pullDistance}px)` }"
     >
-      <div v-show="pullStatus !== 'idle'" class="pull-refresh-content">
+      <div v-show="pullStatus !== 'idle'" class="zx-pull-refresh-content">
         <!-- <RequestLoading v-if="pullStatus === 'refreshing'" text="" /> -->
         <span v-if="pullStatus === 'refreshing'"></span>
-        <span v-else-if="pullStatus === 'loosing'" class="pull-text">{{ loosingText }}</span>
-        <span v-else class="pull-text">{{ pullingText }}</span>
+        <span v-else-if="pullStatus === 'loosing'" class="zx-pull-text">{{ loosingText }}</span>
+        <span v-else class="zx-pull-text">{{ pullingText }}</span>
       </div>
     </div>
 
     <!-- 内容区域 -->
     <div
       ref="contentRef"
-      class="infinite-scroll-content"
+      class="zx-infinite-scroll-content"
       :class="{ 'no-transition': isDragging }"
       :style="pullRefresh ? { transform: `translateY(${pullDistance}px)` } : {}"
     >
       <!-- 内容区域加载遮罩 -->
-      <div v-if="contentLoading" class="content-loading-mask">
+      <div v-if="contentLoading" class="zx-content-loading-mask">
         <RequestLoading :text="refreshingText" />
       </div>
 
@@ -492,17 +492,17 @@ defineExpose({
       <slot></slot>
 
       <!-- 上拉加载指示器 -->
-      <div v-if="!isEmpty" ref="indicatorRef" class="load-more-indicator">
+      <div v-if="!isEmpty" ref="indicatorRef" class="zx-load-more-indicator">
         <RequestLoading v-if="loading && pullStatus !== 'refreshing'" :text="loadingText" />
-        <span v-else-if="finished" class="finished-text">{{ finishedText }}</span>
-        <span v-else-if="error" class="error-text" @click="handleRetry">{{ errorText }}</span>
+        <span v-else-if="finished" class="zx-finished-text">{{ finishedText }}</span>
+        <span v-else-if="error" class="zx-error-text" @click="handleRetry">{{ errorText }}</span>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped lang="scss">
-.infinite-scroll {
+<style lang="scss">
+.zx-infinite-scroll {
   height: 100%;
   position: relative;
   min-height: 100%;
@@ -516,7 +516,7 @@ defineExpose({
   -webkit-overflow-scrolling: touch;
 }
 
-.pull-refresh-indicator {
+.zx-pull-refresh-indicator {
   position: absolute;
   top: -50px;
   left: 0;
@@ -530,7 +530,7 @@ defineExpose({
   }
 }
 
-.pull-refresh-content {
+.zx-pull-refresh-content {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -539,12 +539,12 @@ defineExpose({
   color: #969799;
 }
 
-.pull-text {
+.zx-pull-text {
   color: #1989fa;
   font-size: 14px;
 }
 
-.infinite-scroll-content {
+.zx-infinite-scroll-content {
   position: relative;
   transition: transform 0.25s;
   min-height: 100%;
@@ -554,7 +554,7 @@ defineExpose({
   }
 }
 
-.content-loading-mask {
+.zx-content-loading-mask {
   position: absolute;
   top: 0;
   left: 0;
@@ -568,7 +568,7 @@ defineExpose({
   backdrop-filter: blur(2px);
 }
 
-.load-more-indicator {
+.zx-load-more-indicator {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -579,12 +579,12 @@ defineExpose({
   color: #8c8f97;
 }
 
-.finished-text {
+.zx-finished-text {
   color: #8c8f97;
   font-size: 14px;
 }
 
-.error-text {
+.zx-error-text {
   color: #ee0a24;
   font-size: 14px;
   cursor: pointer;

@@ -30,27 +30,27 @@ const imageSrc = computed(() => props.emptyImage || defaultEmptySvg);
 </script>
 
 <template>
-  <div class="empty-wrap" :style="wrapStyle">
-    <img class="empty-image" :src="imageSrc" alt="" />
-    <p v-if="showText" class="empty-text">
+  <div class="zx-empty-wrap" :style="wrapStyle">
+    <img class="zx-empty-image" :src="imageSrc" alt="" />
+    <p v-if="showText" class="zx-empty-text">
       <slot>{{ text }}</slot>
     </p>
   </div>
 </template>
 
-<style scoped lang="scss">
-.empty-wrap {
+<style lang="scss">
+.zx-empty-wrap {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.empty-image {
+.zx-empty-image {
   width: 96px;
   height: 80px;
 }
 
-.empty-text {
+.zx-empty-text {
   margin: 12px 0 0;
   color: #8c8f97;
   font-size: 12px;
